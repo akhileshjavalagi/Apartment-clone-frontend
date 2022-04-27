@@ -45,9 +45,9 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static" >
+    <AppBar position="static" style ={{backgroundColor: "green"}}>
       <Container maxWidth="xl">
-       
+        <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
@@ -64,7 +64,7 @@ const ResponsiveAppBar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-             
+              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -144,7 +144,7 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-       
+        </Toolbar>
       </Container>
     </AppBar>
   );

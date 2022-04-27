@@ -21,7 +21,7 @@ export const Home = () => {
 
   const getFlatsData = () => {
     setloading(true);
-    fetch("https://apartment-clone.herokuapp.com/flats")
+    fetch("https://prem-deployment.herokuapp.com/flats")
       .then((res) => res.json())
       .then((data) => {
         dispatch(addFlats(data));
@@ -31,7 +31,7 @@ export const Home = () => {
   };
 
   const getclassData = () => {
-    fetch("https://apartment-clone.herokuapp.com/residents")
+    fetch("https://prem-deployment.herokuapp.com/residents")
       .then((res) => res.json())
       .then((data) => dispatch(addResidents(data)));
   };
@@ -59,7 +59,7 @@ export const Home = () => {
   }
 
   const handleDelete = (id) => {
-    fetch(`https://apartment-clone.herokuapp.com/flats/${id}`, {
+    fetch(`https://prem-deployment.herokuapp.com/flats/${id}`, {
       method: "DELETE"
     }).then(alert("Proceed to Delete?"))
     .then(getFlatsData())
@@ -87,15 +87,15 @@ export const Home = () => {
             margin: "2% auto",
             height: "35px",
             border: "1px solid lightblue",
-        
-            color: "black",
+            backgroundColor: "blue",
+            color: "white",
             fontWeight: "600",
             borderRadius: "6px",
             padding: "5px",
           }}
           htmlFor=""
         >
-          <strong>Filter Resident</strong>
+          <strong>Filter By Resident Type</strong>
         </label>
         <select
           style={{ margin: "2% auto", height: "35px" }}
@@ -103,7 +103,7 @@ export const Home = () => {
           name=""
           id=""
         >
-          <option value="--">Select</option>
+          <option value="--">Select Residnet Type</option>
           <option value="rent">Rent</option>
           <option value="own">Own</option>
         </select>
@@ -113,13 +113,13 @@ export const Home = () => {
             margin: "2% auto",
             height: "35px",
             border: "1px solid lightblue",
-         
-            color: "black",
+            backgroundColor: "blue",
+            color: "white",
             fontWeight: "600",
             borderRadius: "6px",
             padding: "5px",
           }}
-        
+          htmlFor=""
         >
           <strong>Sort By Flat No</strong>
         </label>
@@ -129,7 +129,7 @@ export const Home = () => {
           name=""
           id=""
         >
-          <option value="--">Select</option>
+          <option value="--">Select Order For Sorting</option>
           <option value="asc">low to high</option>
           <option value="des">high to low</option>
         </select>
@@ -138,15 +138,15 @@ export const Home = () => {
         striped
         bordered
         hover
-        variant="light"
+        variant="dark"
         style={{ width: "80%", margin: "0.5% auto"}}
       >
         <thead>
           <tr>
-            <th>ID</th>
+            <th>#ID</th>
             <th>Flat Name</th>
-            <th>No of Residents</th>
-            <th>Flat Number</th>
+            <th>Total No of Residents</th>
+            <th>Flat No</th>
             <th>Block Name</th>
             <th>Resident Type</th>
             <th>Flat Image</th>
@@ -159,7 +159,7 @@ export const Home = () => {
             <tr key={e._id}>
               <td>
                 <Link
-                  style={{ color: "black", textDecoration: "none" }}
+                  style={{ color: "white", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e._id}
@@ -167,7 +167,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "black", textDecoration: "none" }}
+                  style={{ color: "white", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.flat_name}
@@ -175,7 +175,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "black", textDecoration: "none" }}
+                  style={{ color: "white", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.total_residents}
@@ -183,7 +183,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "black", textDecoration: "none" }}
+                  style={{ color: "white", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.flat_no}
@@ -191,7 +191,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "black", textDecoration: "none" }}
+                  style={{ color: "white", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.block_name}
@@ -199,7 +199,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "black", textDecoration: "none" }}
+                  style={{ color: "white", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.resident_type}
@@ -207,7 +207,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "black", textDecoration: "none" }}
+                  style={{ color: "white", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   <img
@@ -224,7 +224,7 @@ export const Home = () => {
               <td>
                 <Button
                   style={{
-                    backgroundColor: "teal",
+                    backgroundColor: "green",
                     color: "white",
                     fontWeight: "600",
                   }}
@@ -235,7 +235,7 @@ export const Home = () => {
               <td>
                 <Button
                   style={{
-                    backgroundColor: "teal",
+                    backgroundColor: "red",
                     color: "white",
                     fontWeight: "600",
                   }}

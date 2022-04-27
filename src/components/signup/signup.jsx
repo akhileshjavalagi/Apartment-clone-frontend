@@ -43,7 +43,7 @@ export default function Signup() {
   console.log(adminData);
 
   const getAdmins = () => {
-    fetch("https://apartment-clone.herokuapp.com/admin")
+    fetch("https://prem-deployment.herokuapp.com/admin")
     .then((res) => res.json())
     .then((data) => dispatch(addAdmin(data)));
   }
@@ -74,7 +74,7 @@ export default function Signup() {
         alert("User has already Signedup") 
       }
       else {
-        fetch("https://git.heroku.com/apartment-clone.git/admin", {
+        fetch("https://prem-deployment.herokuapp.com/admin", {
           method: "POST",
           body: JSON.stringify({...user}),
           headers: {
