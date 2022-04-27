@@ -43,7 +43,7 @@ export default function Login() {
 
   console.log(isLogged);
   const getAdmins = () => {
-    fetch("https://prem-deployment.herokuapp.com/admin")
+    fetch("https://apartment-clone.herokuapp.com/admin")
     .then((res) => res.json())
     .then((data) => setadmins([...data]));
   }

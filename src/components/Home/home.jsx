@@ -21,7 +21,7 @@ export const Home = () => {
 
   const getFlatsData = () => {
     setloading(true);
-    fetch("https://prem-deployment.herokuapp.com/flats")
+    fetch("https://apartment-clone.herokuapp.com/flats")
       .then((res) => res.json())
       .then((data) => {
         dispatch(addFlats(data));
@@ -31,7 +31,7 @@ export const Home = () => {
   };
 
   const getclassData = () => {
-    fetch("https://prem-deployment.herokuapp.com/residents")
+    fetch("https://apartment-clone.herokuapp.com/residents")
       .then((res) => res.json())
       .then((data) => dispatch(addResidents(data)));
   };
@@ -59,7 +59,7 @@ export const Home = () => {
   }
 
   const handleDelete = (id) => {
-    fetch(`https://prem-deployment.herokuapp.com/flats/${id}`, {
+    fetch(`https://apartment-clone.herokuapp.com/flats/${id}`, {
       method: "DELETE"
     }).then(alert("Proceed to Delete?"))
     .then(getFlatsData())
