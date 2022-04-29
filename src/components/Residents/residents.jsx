@@ -21,13 +21,13 @@ export const Residents = () => {
   const filterResidents = (flat_id) => {
     // console.log("id is " ,flat_id);
     setloading(true);
-    fetch(`https://prem-deployment.herokuapp.com/residents/`)
+    fetch(`https://apartment-clone-backend.herokuapp.com/residents/`)
       .then((res) => res.json())
       .then((data) => {filterData(data, flat_id)});
   };
 
   const handleDelete = (id) => {
-    fetch(`https://prem-deployment.herokuapp.com/residents/${id}`, {
+    fetch(`https://apartment-clone-backend.herokuapp.com/residents/${id}`, {
       method: "DELETE"
     })
     .then(alert("Proceed to delete?"))

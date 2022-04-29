@@ -20,7 +20,7 @@ export default function BasicTextFields() {
      }
 
      const handlePost = () => {
-        fetch("https://prem-deployment.herokuapp.com/residents/", {
+        fetch("https://apartment-clone-backend.herokuapp.com/residents/", {
             method: "POST",
             body: JSON.stringify({...residentData}),
             headers: {

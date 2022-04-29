@@ -37,13 +37,13 @@ export default function Login() {
   const [admins, setadmins] = useState([]);
   const [user, setuser] = useState({});
   const dispatch = useDispatch();
-  const {isLogged} = useSelector((store) => store.admin);
+  var {isLogged} = useSelector((store) => store.admin);
    const [count, setcount] = useState(0);
 
 
   console.log(isLogged);
   const getAdmins = () => {
-    fetch("https://prem-deployment.herokuapp.com/admin")
+    fetch("https://apartment-clone-backend.herokuapp.com/admin")
     .then((res) => res.json())
     .then((data) => setadmins([...data]));
   }
