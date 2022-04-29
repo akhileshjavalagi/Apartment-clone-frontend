@@ -18,7 +18,7 @@ export default function BasicTextFields() {
     }
 
     const handlePost = () => {
-        fetch("https://apartment-clone-backend.herokuapp.com/flats/", {
+        fetch("https://apartmentsbackend.herokuapp.com/flats/", {
           method: "POST",
           body: JSON.stringify({...flatData}),
           headers: {
@@ -37,9 +37,9 @@ export default function BasicTextFields() {
       noValidate
       autoComplete="off"
     >
-      <TextField onChange = {handleChange} name = "flat_name" id="outlined-basic" label="Enter flat Name" variant="outlined" required/>
-      <TextField onChange = {handleChange} name = "resident_type" id="filled-basic" label="Enter Resident Type" variant="filled" required/>
-      <TextField onChange = {handleChange} name = "total_residents" id="standard-basic" label="Enter Total No Of Residents" variant="standard" required/>
+      <TextField onChange = {handleChange} name = "flat_name" id="outlined-basic" label="Enter flat Name" variant="outlined" />
+      <TextField onChange = {handleChange} name = "resident_type" id="filled-basic" label="Enter Resident Type" variant="filled" />
+      <TextField onChange = {handleChange} name = "total_residents" id="standard-basic" label="Enter Total No Of Residents" variant="standard" />
     </Box>
     <Box style = {{margin: "2% auto"}}
       component="form"
@@ -53,18 +53,10 @@ export default function BasicTextFields() {
       <TextField onChange = {handleChange} name = "block_name" id="filled-basic" label="Enter Block Name" variant="filled" required/>
       <TextField onChange = {handleChange} name = "flat_img" id="standard-basic" label="Add Image Address" variant="standard" required/>
       <br />
-      <Button onClick = {handlePost} variant="contained" color="success">Add Data</Button>
+      <Button onClick = {handlePost} variant="contained" >Add</Button>
     </Box>
     </>
   );
 }
 
 
-/*
-flat_name": "happy",
-        "flat_img": "dddd",
-        "resident_type": "rent",
-        "total_residents": 52,
-        "flat_no": 51,
-        "block_name": "A",
-*/

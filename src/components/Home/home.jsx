@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { addFlats } from "../../Redux/Flats/action.js";
 import { addResidents } from "../../Redux/Residents/action.js";
-import { sortAsc ,  sortDsc } from "../../Redux/Flats/action.js";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Button from "@mui/material/Button";
 import CircularIndeterminate from "./spinners";
 import { Navigate } from "react-router-dom";
-import Pagination from '@mui/material/Pagination';
+
 
 export const Home = () => {
   const { flats } = useSelector((store) => store.flats);
@@ -21,7 +20,7 @@ export const Home = () => {
 
   const getFlatsData = () => {
     setloading(true);
-    fetch("https://apartment-clone-backend.herokuapp.com/flats")
+    fetch("https://apartmentsbackend.herokuapp.com/flats")
       .then((res) => res.json())
       .then((data) => {
         dispatch(addFlats(data));
@@ -31,7 +30,7 @@ export const Home = () => {
   };
 
   const getclassData = () => {
-    fetch("https://apartment-clone-backend.herokuapp.com/residents")
+    fetch("https://apartmentsbackend.herokuapp.com/residents")
       .then((res) => res.json())
       .then((data) => dispatch(addResidents(data)));
   };
@@ -59,7 +58,7 @@ export const Home = () => {
   }
 
   const handleDelete = (id) => {
-    fetch(`https://apartment-clone-backend.herokuapp.com/flats/${id}`, {
+    fetch(`https://apartmentsbackend.herokuapp.com/flats/${id}`, {
       method: "DELETE"
     }).then(alert("Proceed to Delete?"))
     .then(getFlatsData())
@@ -84,18 +83,13 @@ export const Home = () => {
       >
         <label
           style={{
-            margin: "2% auto",
-            height: "35px",
-            border: "1px solid lightblue",
-            backgroundColor: "blue",
-            color: "white",
-            fontWeight: "600",
-            borderRadius: "6px",
-            padding: "5px",
+            
+           
+          
           }}
           htmlFor=""
         >
-          <strong>Filter By Resident Type</strong>
+          <strong>Filter Resident</strong>
         </label>
         <select
           style={{ margin: "2% auto", height: "35px" }}
@@ -112,9 +106,9 @@ export const Home = () => {
           style={{
             margin: "2% auto",
             height: "35px",
-            border: "1px solid lightblue",
-            backgroundColor: "blue",
-            color: "white",
+          
+            
+            color: "black",
             fontWeight: "600",
             borderRadius: "6px",
             padding: "5px",
@@ -130,25 +124,21 @@ export const Home = () => {
           id=""
         >
           <option value="--">Select Order For Sorting</option>
-          <option value="asc">low to high</option>
-          <option value="des">high to low</option>
+          <option value="ascending order">low to high</option>
+          <option value="descending order">high to low</option>
         </select>
       </div>
       <Table
-        striped
-        bordered
-        hover
-        variant="dark"
-        style={{ width: "80%", margin: "0.5% auto"}}
+        
       >
         <thead>
           <tr>
-            <th>#ID</th>
+            <th>ID</th>
             <th>Flat Name</th>
-            <th>Total No of Residents</th>
-            <th>Flat No</th>
+            <th>Total Residents</th>
+            <th>Flat number</th>
             <th>Block Name</th>
-            <th>Resident Type</th>
+            <th>Type of Residents</th>
             <th>Flat Image</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -159,7 +149,7 @@ export const Home = () => {
             <tr key={e._id}>
               <td>
                 <Link
-                  style={{ color: "white", textDecoration: "none" }}
+                  style={{ color: "black"}}
                   to={`/residents/${e._id}/`}
                 >
                   {e._id}
@@ -167,7 +157,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "white", textDecoration: "none" }}
+                  style={{ color: "black", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.flat_name}
@@ -175,7 +165,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "white", textDecoration: "none" }}
+                  style={{ color: "black", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.total_residents}
@@ -183,7 +173,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "white", textDecoration: "none" }}
+                  style={{ color: "black", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.flat_no}
@@ -191,7 +181,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "white", textDecoration: "none" }}
+                  style={{ color: "black", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.block_name}
@@ -199,7 +189,7 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "white", textDecoration: "none" }}
+                  style={{ color: "black", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   {e.resident_type}
@@ -207,14 +197,14 @@ export const Home = () => {
               </td>
               <td>
                 <Link
-                  style={{ color: "white", textDecoration: "none" }}
+                  style={{ color: "black", textDecoration: "none" }}
                   to={`/residents/${e._id}/`}
                 >
                   <img
                     style={{
                       width: "200px",
                       height: "100px",
-                      objectFit: "cover",
+                      
                     }}
                     src={e.flat_img}
                     alt=""
@@ -224,9 +214,9 @@ export const Home = () => {
               <td>
                 <Button
                   style={{
-                    backgroundColor: "green",
-                    color: "white",
-                    fontWeight: "600",
+                    backgroundColor: "teal",
+                    color: "black",
+                    fontWeight: "500",
                   }}
                 >
                   Edit
@@ -236,8 +226,8 @@ export const Home = () => {
                 <Button
                   style={{
                     backgroundColor: "red",
-                    color: "white",
-                    fontWeight: "600",
+                    color: "black",
+                    fontWeight: "500",
                   }}
                   onClick = {() => {handleDelete(e._id)}}
                 >
